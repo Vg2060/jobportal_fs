@@ -1,0 +1,391 @@
+<style>
+    :host {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+  
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 8px 0;
+    }
+  
+    p {
+      margin: 0;
+    }
+  
+    .spacer {
+      flex: 1;
+    }
+  
+    .toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background-color: #1976d2;
+      color: white;
+      font-weight: 600;
+    }
+    
+  
+    .toolbar img {
+      margin: 0 16px;
+    }
+  
+    svg#rocket-smoke {
+      height: calc(100vh - 95px);
+      position: absolute;
+      top: 10px;
+      right: 180px;
+      z-index: -10;
+    }
+  
+    svg#clouds {
+      position: fixed;
+      bottom: -160px;
+      left: -230px;
+      z-index: -10;
+      width: 1920px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 767px) {
+  
+      svg#rocket-smoke {
+        right: 120px;
+        transform: rotate(-5deg);
+      }
+    }
+
+    
+  
+    @media screen and (max-width: 575px) {
+      svg#rocket-smoke {
+        display: none;
+        visibility: hidden;
+      }
+    }
+
+
+    * {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: calc( 100% / 6 - 10px);
+  padding: 0 20px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 60%;
+    display: block;
+    margin-bottom: 20px;
+    
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: center;
+  background:linear-gradient(to bottom, #00ccff 0%,rgb(0, 68, 255) 100%);
+  border-radius: 5%;
+  
+}
+
+#content-wrap {
+    float: left;
+    width: 70%;
+}   
+
+#sidebar {
+    float: right;
+    width: 30%;
+}
+
+
+
+.button {
+        background-color: #1976d2;
+        border: none;
+        color: white;
+        text-align: right;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;    
+    }
+    button:hover{
+		                       background-color:cornflowerblue;
+		                     }      
+    .button1 {
+        padding: 6px 20px;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+    }
+    .button2 {
+        padding: 6px 20px;
+        position: absolute;
+        top: 90px;
+        right: 650px;
+    }
+    input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color:#1976d2;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #2952d8;
+}
+
+div.a{
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.search {
+  float: left;
+  padding: 6px;
+  border: black;
+  font-size: 17px;
+  width: 600px;
+  height: 30px;
+}
+@media screen and (max-width: 600px) {
+.search  {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  
+}
+
+.inp{
+		                    
+                            width:200px;
+     background-color:rgba(231, 230, 230, 0.69);
+     margin:auto;
+     color:#070606;
+     padding:5px 0px 5px 0px;
+     text-align:center;
+     border-radius:15px 15px 0px 0px;
+     position:relative;
+                       
+                         line-height:20px;
+                         border-radius:6px;
+                         padding:0 10px;
+                         font-size:16px;
+                         text-decoration-color:rgb(12, 10, 10);
+                                 
+                      } 
+
+
+  
+  </style>
+  
+  <!-- Toolbar -->
+  <div class="toolbar" role="banner">
+      <h2 style="text-align:center" style="padding-left:30px">JOB HUB</h2>
+  
+      <div class="spacer"></div>
+      <nav>
+      <h2><a>Home</a>&nbsp;
+     <a>Logout</a>&nbsp;</h2>
+    </nav>
+  </div>
+  <br><br><br>
+  
+  
+  
+    <svg id="clouds" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677" viewBox="0 0 2611.084 485.677">
+      <title>Gray Clouds Background</title>
+      <path id="Path_39" data-name="Path 39" d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z" transform="translate(142.69 -634.312)" fill="#eee"/>
+    </svg>
+  
+
+    <body>
+
+        
+        <button class="button button1">Add</button>
+        <div class="search">
+            <input type="text" placeholder="Search..">
+            <button class="button button2" >Search</button>
+        </div>
+<br>
+
+
+<br>
+<div id="content-wrap">
+    <br><br>
+    contenteditable<br><br>
+
+<table>
+    <tr>
+    <th>S.No</th>
+    <th>Name</th>
+    <th>Role</th>
+  </tr>
+  
+  <tr>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="des1">
+  </div></td>
+  
+  <td><div contenteditable type="text">
+  <input class="inp" type="text" name="qty1">
+  </div></td>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="amt1">
+  </div></td>
+    
+  </tr>
+  
+  <tr>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="des2">
+  </div></td>
+ 
+
+  <td><div contenteditable type="text">
+  <input class="inp" type="text" name="qty2">
+  </div></td>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="amt2">
+  </div></td>
+    
+  </tr>
+  
+  <tr>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="des3">
+  </div></td>
+ 
+  <td><div contenteditable type="text">
+  <input class="inp" type="text" name="qty3">
+  </div></td>
+  <td><div contenteditable type="text" >
+  <input class="inp" type="text" name="amt3">
+  </div></td>
+    
+  </tr>
+
+  <tr>
+    <td><div contenteditable type="text" >
+    <input class="inp" type="text" name="des4">
+    </div></td>
+   
+    <td><div contenteditable type="text">
+    <input class="inp" type="text" name="qty4">
+    </div></td>
+    <td><div contenteditable type="text" >
+    <input class="inp" type="text" name="amt4">
+    </div></td>
+      
+    </tr>
+
+    <tr>
+        <td><div contenteditable type="text" >
+        <input class="inp" type="text" name="des5">
+        </div></td>
+       
+        <td><div contenteditable type="text">
+        <input class="inp" type="text" name="qty5">
+        </div></td>
+        <td><div contenteditable type="text" >
+        <input class="inp" type="text" name="amt5">
+        </div></td>
+          
+        </tr>
+
+        <tr>
+            <td><div contenteditable type="text" >
+            <input class="inp" type="text" name="des6">
+            </div></td>
+           
+            <td><div contenteditable type="text">
+            <input class="inp" type="text" name="qty6">
+            </div></td>
+            <td><div contenteditable type="text" >
+            <input class="inp" type="text" name="amt6">
+            </div></td>
+              
+            </tr>
+  
+ 
+</table>
+</div>
+
+    
+    <div id="sidebar">
+        <br><br><br><br>
+        <div class="a">
+            <form action="/action_page.php">
+                <br>
+              <label><h2>ADD / EDIT DETAILS</h2></label>
+              <br>
+              <input type="text" id="fname" name="fullname" placeholder="Enter name">
+              <input type="text" id="email" name="email" placeholder="Enter email">
+              <input type="text" id="pswd" name="password" placeholder="Enter password">
+              <input type="text" id="exp" name="experience" placeholder="Enter experience">
+              
+             
+              
+            
+              <h2><input type="submit"value="UPDATE"></h2>
+            </form>
+          </div>
+    </div>
+        </body>
